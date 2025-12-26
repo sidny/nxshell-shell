@@ -74,7 +74,7 @@ const themeIconConstants = {
 	pink: "el-icon-grape",
 	hazy: "el-icon-sunny"
 }
-console.log("设置", locale.value, getProfile("xterm").language)
+console.log("设置", locale.value, getProfile("xterm")?.language)
 const doCapture = async (e) => {
 	capture.value = !capture.value
 	captureIcon.value = capture.value ? "VideoPlay" : "VideoPause"

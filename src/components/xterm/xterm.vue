@@ -140,6 +140,12 @@ export default {
 			const fitAddon = new FitAddon()
 			this.terminal.loadAddon(fitAddon)
 
+			// Patch resize to ensure integers
+			const originalResize = this.terminal.resize.bind(this.terminal)
+			this.terminal.resize = (cols, rows) => {
+				originalResize(Math.floor(cols), Math.floor(rows))
+			}
+
 			this.terminal.open(this.$refs.xtermContainer)
 			fitAddon.fit()
 			this.fitAddon = fitAddon
